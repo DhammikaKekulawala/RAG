@@ -3,12 +3,22 @@ from app.ingest import ingest_pdf
 from app.rag import ask_question
 from app.models.schemas import UploadResponse, QueryRequest, QueryResponse
 from app.config import DOCUMENTS_DIR
+from fastapi.middleware.cors import CORSMiddleware
 import os
 
 app = FastAPI(
     title="RAG System API",
     description="A Retrieval-Augmented Generation API to ingest PDFs and answer questions using OpenAI.",
     version="1.0.0"
+)
+
+# Configure CORS (adjust allowed origins as needed)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # You can restrict to specific origins for production
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 @app.post("/upload", response_model=UploadResponse, summary="Upload a PDF document")

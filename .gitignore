@@ -12,8 +12,9 @@ venv
 # datasets
 dataset/
 
-# database
-database/
+# data
+data/chroma_db/
+data/documents/
 
 # Distribution / packaging
 .Python

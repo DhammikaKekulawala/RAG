@@ -10,6 +10,9 @@ import os
 load_dotenv()
 
 app = FastAPI()
+embeddings = OpenAIEmbeddings()
+
+
 @app.get("/load-pdf")
 async def load_pdf():
     file_path = os.getenv("FILE_PATH")
@@ -18,9 +21,7 @@ async def load_pdf():
         return {"error": "Invalid or missing FILE_PATH"}
 
     loader = PyPDFLoader(file_path)
-    pages = []
+    documents = loader.load()
+    print(documents[0])
 
-    async for page in loader.alazy_load():
-        pages.append(page)
-
-    return {"message": f"Loaded {len(pages)} pages from {file_path}"}
+    return {"message": f"Loaded {len(documents)} pages {documents[0]}"}

@@ -1,5 +1,5 @@
 from langchain.document_loaders import PyPDFLoader
-from langchain.embeddings import HuggingFaceEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings  # Updated import
 from langchain.vectorstores import Chroma
 from app.config import CHROMA_DIR
 

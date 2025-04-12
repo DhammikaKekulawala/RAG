@@ -1,5 +1,5 @@
 from langchain.chains import RetrievalQA
-from langchain.embeddings import HuggingFaceEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
 from langchain.vectorstores import Chroma
 from langchain.llms import OpenAI
 from app.config import CHROMA_DIR, OPENAI_API_KEY

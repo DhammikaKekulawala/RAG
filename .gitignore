@@ -9,6 +9,11 @@ __pycache__/
 # environments      
 venv
 
+# datasets
+dataset/
+
+# database
+database/
 
 # Distribution / packaging
 .Python
